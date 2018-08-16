@@ -1,0 +1,331 @@
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a>Especificação&#160;da&#160;Linguagem&#160;[nome?]&#160;<br/>
+(Versão&#160;0.1)&#160;<br/>
+<b>Características da&#160;linguagem&#160;</b><br/>
+•&#160;&#160;Imperativa;&#160;<br/>•&#160;&#160;Fortemente tipada;&#160;<br/>•&#160;&#160;Declaração&#160;explícita de variáveis;&#160;<br/>•&#160;&#160;Vinculação&#160;estática&#160;de&#160;tipos;&#160;<br/>•&#160;&#160;Sistema de escopo&#160;estático&#160;(léxico);&#160;<br/>•&#160;&#160;Sensível&#160;à caixa (case-sensitive);&#160;<br/>
+<b>Sistema&#160;de&#160;Tipos&#160;<br/></b>A&#160;linguagem&#160;possui&#160;um&#160;sistema de tipo&#160;com&#160;duas&#160;classes: tipos&#160;primitivos e tipos&#160;<br/>agregados.&#160;&#160;<br/>
+<b>Tipos&#160;primitivos&#160;<br/></b>Os&#160;tipos&#160;primitivos&#160;são&#160;&#160;números&#160;&#160;inteiros,&#160;&#160;valores&#160;&#160;lógicos&#160;&#160;e&#160;strings,&#160;representados&#160;<br/>respectivamente pelos tipos&#160;int,&#160;bool&#160;e&#160;string.&#160;<br/>
+<b>Tipos&#160;Compostos&#160;(arranjo)&#160;<br/></b>O&#160;tipo&#160;agregado&#160;é um&#160;arranjo&#160;de algum&#160;tipo&#160;primitivo. Dessa forma, podemos ter&#160;as&#160;<br/>variantes: arranjo&#160;de&#160;inteiros, arranjo&#160;de&#160;lógicos&#160;e&#160;arranjo&#160;de&#160;strings.&#160;<br/>
+<b>O tipo&#160;string&#160;<br/></b>Dados do&#160;tipo&#160;string&#160;são&#160;constantes e não&#160;são&#160;indexados como&#160;na&#160;maioria&#160;das linguagens.&#160;<br/>O&#160;objetivo&#160;da existência do&#160;tipo&#160;string&#160;na linguagem&#160;é&#160;apenas fornecer&#160;uma maneira&#160;de&#160;<br/>apresentar&#160;(escrever)&#160;mensagens&#160;na&#160;tela.&#160;<br/>
+<b>Especificação&#160;Léxica&#160;</b><br/>
+<b>Identificadores&#160;<br/></b>Chamamos&#160;de&#160;identificador&#160;qualquer&#160;nome&#160;criado&#160;pelo&#160;usuário&#160;da&#160;linguagem.&#160;Os&#160;<br/>identificadores seguem&#160;a mesma regra de formação&#160;da linguagem&#160;C:&#160;<br/>
+•&#160;&#160;Devem&#160;iniciar&#160;com&#160;uma&#160;letra&#160;(minúscula&#160;ou maiúscula) ou um&#160;subtraço seguido de&#160;<br/>
+letras, subtraços&#160;ou&#160;dígitos entre&#160;0&#160;e 9.&#160;<br/>
+Um&#160;identificador será&#160;expresso&#160;pelo&#160;símbolo&#160;id&#160;nas&#160;especificações&#160;sintáticas.&#160;<br/>
+1&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=2></a><b>Números&#160;<br/></b>Os números devem&#160;ser&#160;representados&#160;na base decimal&#160;e podem&#160;conter&#160;qualquer&#160;<br/>combinação&#160;de dígitos entre 0&#160;e&#160;9.&#160;Os números negativos não&#160;serão&#160;processados na fase&#160;<br/>léxica, mas sim&#160;na sintática e&#160;semântica. Dessa forma,&#160;o número&#160;-42,&#160;por exemplo,&#160;<br/>consiste&#160;de&#160;dois&#160;lexemas:&#160;'-'&#160;e&#160;'42',&#160;e&#160;serão&#160;tratados&#160;como&#160;uma&#160;operação&#160;aritmética&#160;nas&#160;<br/>análises&#160;sintática e semântica.&#160;<br/>
+<b>Strings&#160;<br/></b>As&#160;strings&#160;possuem&#160;a&#160;mesma regra de formação&#160;definida&#160;pela&#160;linguagem C.&#160;<br/>
+<b>Comentários&#160;<br/></b>A&#160;linguagem&#160;possui&#160;apenas&#160;comentários&#160;de&#160;linha:&#160;&#160;<br/>
+•&#160;&#160;Começam com&#160;//&#160;e&#160;seguem até&#160;o&#160;final da&#160;linha.&#160;<br/>
+De forma&#160;geral, os comentários podem&#160;conter&#160;qualquer&#160;tipo&#160;de símbolo, inclusive os&#160;não&#160;<br/>permitidos&#160;pela linguagem. Os&#160;comentários devem&#160;ser&#160;processados corretamente&#160;pelo&#160;<br/>analisador&#160;léxico&#160;e em&#160;seguida descartados.&#160;<br/>
+<b>Palavras&#160;reservadas&#160;e&#160;símbolos&#160;<br/></b>As palavras&#160;reservadas&#160;e símbolos da linguagem&#160;são:&#160;<br/>
+bool false&#160;for if&#160;int read&#160;return skip stop string&#160;true while write&#160;<br/>( ) [ ]&#160;{&#160;} , ; +&#160;-&#160;* /&#160;==&#160;!=&#160;&gt;&#160;&gt;=&#160;&lt;&#160;&lt;=&#160;||&#160;&amp;&amp;&#160;!&#160;=&#160;+=&#160;-= *= /= %= ?&#160;:&#160;<br/>
+<b>Especificação&#160;Sintática&#160;</b><br/>
+<b>Programa&#160;<br/></b>Um&#160;programa consiste de uma sequência não&#160;vazia de declarações de&#160;variáveis&#160;e&#160;<br/>subprogramas.&#160;&#160;<br/>
+programa ::=&#160;dec&#160;{dec}&#160;<br/>
+<b>Variáveis&#160;<br/></b>Existem&#160;&#160;dois tipos&#160;de&#160;variáveis:&#160;as simples&#160;e&#160;as&#160;agregadas. Variáveis simples suportam&#160;<br/>apenas&#160;um único&#160;valor&#160;de&#160;um determinado&#160;tipo&#160;primitivo&#160;em um determinado&#160;momento.&#160;<br/>Variáveis&#160;agregadas são&#160;de&#160;tipos&#160;compostos&#160;(arranjos),&#160;suportando&#160;mais&#160;de&#160;um valor&#160;de&#160;<br/>um&#160;mesmo&#160;tipo&#160;em um&#160;determinado&#160;momento.&#160;<br/>
+2&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=3></a><b>Exemplo:&#160;<br/></b>var&#160;a,&#160;b =&#160;3, c =&#160;2&#160;+ b: int;&#160;<br/>var&#160;str1,&#160;str2 =&#160;&#34;String 2&#34;: string;&#160;<br/>var&#160;i,&#160;j =&#160;true:&#160;bool;&#160;<br/>var&#160;v[10],&#160;z[3] =&#160;{1, 5, 8}: int;&#160;<br/>
+<b>Declaração&#160;de Variáveis&#160;<br/></b>decVar&#160;::=&#160;'var'&#160;listaSpecVars&#160;':'&#160;tipo&#160;';'&#160;<br/>listaSpecVars&#160;::=&#160;specVar&#160;{','&#160;specVar}&#160;<br/>specVar&#160;::=&#160;specVarSimples&#160;|&#160;specVarSimplesIni&#160;|&#160;&#160;<br/>&#160; &#160; &#160; &#160;&#160; &#160;&#160;&#160;specVarArranjo&#160;|&#160;specVarArranjoIni&#160;<br/>
+Observe que a declaração&#160;de variáveis é indicada pela palavra reservada&#160;var.&#160;&#160;Observe&#160;<br/>também&#160;que múltiplas variáveis podem&#160;ser&#160;declaradas de uma vez&#160;e que elas podem&#160;ser&#160;<br/>inicializadas durante a declaração.&#160;&#160;Veja que,&#160;para os arranjos,&#160;&#160;o&#160;tamanho&#160;do&#160;mesmo&#160;<br/>também&#160;deve ser&#160;especificado&#160;na&#160;declaração.&#160;<br/>
+<b>Subprogramas&#160;(procedimentos&#160;e&#160;funções)&#160;<br/></b>A&#160;definição&#160;de procedimentos e funções possui&#160;uma sintaxe comum, exceto&#160;pela ausência&#160;<br/>do&#160;tipo&#160;de&#160;retorno&#160;para&#160;procedimentos.&#160;Diferentemente&#160;da&#160;&#160;linguagem C,&#160;&#160;por&#160;exemplo,&#160;<br/>não&#160;há separação&#160;entre declaração&#160;e definição&#160;de subprogramas, isto&#160;é, o&#160;subprograma é&#160;<br/>declarado&#160;durante&#160;sua&#160;própria&#160;definição.&#160;<br/>
+<b>Exemplo:&#160;</b><br/>
+<b>Declaração&#160;de Procedimento&#160;</b><br/>
+<b>Declração&#160;de Função&#160;</b><br/>
+def proc(y: int)&#160;{&#160;<br/>
+def func(x, y: int):&#160;int&#160;{&#160;<br/>
+&#160; &#160;&#160;if&#160;(y&#160;&lt;&#160;0)&#160;{&#160;<br/>
+&#160; &#160;&#160;z&#160;=&#160;x&#160;*&#160;y: int;&#160;<br/>
+&#160; &#160; &#160; &#160;&#160;return;&#160;<br/>
+&#160; &#160;&#160;return&#160;z&#160;+ 1;&#160;<br/>
+&#160; &#160;&#160;}&#160;<br/>
+}&#160;<br/>
+&#160; &#160;&#160;x =&#160;2&#160;* y;&#160;<br/>}&#160;<br/>
+<b>Declaração&#160;de&#160;Subprogramas&#160;<br/></b>decSub&#160;::=&#160;decProc |&#160;decFunc&#160;<br/>
+<b>Declaração&#160;de procedimento&#160;<br/></b>decProc&#160;::=&#160;'def'&#160;id&#160;'('&#160;[listaParâmetros]&#160;')'<b>&#160;</b>bloco&#160;<br/>
+<b>Declaração&#160;de&#160;função&#160;<br/></b>decFunc&#160;::=&#160;'def'&#160;id&#160;'('&#160;[listaParâmetros]&#160;')'<b>&#160;</b>':'<b>&#160;</b>tipo<b>&#160;</b>bloco&#160;<br/>
+<b>Lista de&#160;Parâmetros&#160;<br/></b>listaParâmetros&#160;::=&#160;paramsSpec&#160;{';'&#160;paramsSpec}&#160;<br/>paramsSpec&#160;::=&#160;param&#160;{<b>,</b>&#160;param}&#160;<b>:</b>&#160;tipo&#160;<br/>param&#160;::=&#160;id&#160;|&#160;id&#160;'[]'&#160;<br/>
+3&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=4></a>Parâmetros de tipo&#160;primitivo&#160;são&#160;passados naturalmente por&#160;cópia&#160;e&#160;parâmetros&#160;de&#160;tipo&#160;<br/>arranjo&#160;são&#160;passados naturalmente por&#160;referência.&#160;<br/>
+<b>Comandos&#160;<br/></b>Um comando&#160;pode&#160;ser&#160;um comando&#160;simples&#160;ou&#160;bloco&#160;de&#160;comandos.&#160;<br/>
+cmd&#160;::=&#160;cmdSimples&#160;|&#160;bloco&#160;<br/>
+A&#160;seguir&#160;são&#160;relacionados os comandos simples da linguagem:&#160;<br/>
+•&#160;&#160;<b>Atribuição:&#160;</b><br/>
+cmdAtrib ::=&#160;atrib&#160;';'&#160;<br/>atrib ::=&#160;variável&#160;('='|'+='|'-='|'*='|'/='|'%=')&#160;expressão&#160;<br/>
+O&#160;comando&#160;de atribuição&#160;avalia o&#160;valor&#160;da&#160;expressão&#160;&#160;e o&#160;armazena&#160;na&#160;variável.&#160;<br/>Uma atribuição&#160;somente pode&#160;ocorrer&#160;se&#160;a&#160;variável&#160;foi&#160;previamente declarada e se&#160;o&#160;<br/>tipo&#160;do&#160;resultado&#160;da&#160;expressão&#160;é&#160;o&#160;mesmo&#160;indicado&#160;na&#160;declaração&#160;da&#160;variável.&#160;<br/>
+As atribuições compostas devem&#160;ser&#160;traduzidas da seguinte maneira:&#160;&#160;<br/>
+var&#160;X=&#160;expressão&#160;-&gt;&#160;var = var&#160;X expressão&#160;<br/>
+•&#160;&#160;<b>Condicional&#160;If:&#160;</b><br/>
+cmdIf ::=&#160;'if'<b>&#160;</b>'('&#160;expressão&#160;')'<b>&#160;</b>comando<b>&#160;</b>['else'<b>&#160;</b>comando]&#160;<br/>
+A estrutura&#160;condicional&#160;if&#160;é executada&#160;verificando&#160;o&#160;resultado&#160;da expressão&#160;de teste.&#160;<br/>Se ela resultar&#160;&#160;no&#160;valor&#160;true,&#160;&#160;apenas o&#160;primeiro&#160;&#160;comando&#160;&#160;será executado. Se a&#160;<br/>expressão&#160;resultar&#160;no&#160;valor&#160;false, caso&#160;a estrutura&#160;else&#160;&#160;esteja&#160;presente, apenas&#160;o&#160;<br/>segundo&#160;comando&#160;será&#160;executado.&#160;<br/>
+•&#160;&#160;<b>Laço&#160;While:&#160;</b><br/>
+cmdWhile ::=&#160;'while'<b>&#160;</b>'('&#160;expressão&#160;')'<b>&#160;</b>comando&#160;<br/>
+O&#160;laço&#160;&#160;while&#160;&#160;inicia&#160;&#160;verificando&#160;o&#160;resultado&#160;da expressão&#160;&#160;de teste. Caso&#160;o&#160;valor&#160;&#160;seja&#160;<br/>true,&#160;o&#160;comando&#160;do&#160;seu&#160;corpo&#160;é executado&#160;e&#160;o&#160;laço&#160;volta a testar&#160;o&#160;valor&#160;da expressão&#160;<br/>de teste&#160;para a próxima iteração. Caso&#160;o&#160;valor&#160;seja&#160;false,&#160;a execução&#160;do&#160;laço&#160;é&#160;<br/>interrompida.&#160;<br/>
+•&#160;&#160;<b>Laço For:&#160;</b><br/>
+cmdFor&#160;::=&#160;'for'&#160;'('&#160;atrib-ini&#160;';'&#160;expressão&#160;';'&#160;atrib-passo&#160;')'&#160;comando&#160;<br/>
+O&#160;laço&#160;for&#160;inicia&#160;executando&#160;a&#160;atribuição&#160;de&#160;inicialização.&#160;A&#160;partir&#160;daí, antes&#160;de cada&#160;<br/>iteração,&#160;o&#160;resultado&#160;da expressão&#160;de teste&#160;é&#160;verificado. Se ele&#160;for&#160;true, o&#160;comando&#160;<br/>corpo&#160;&#160;é&#160;executado&#160;e&#160;o&#160;a&#160;&#160;atribuição&#160;&#160;de&#160;&#160;passo&#160;&#160;é executada&#160;&#160;em&#160;seguida,&#160;reiniciando&#160;o&#160;<br/>processo. Se&#160;antes de qualquer&#160;iteração&#160;o&#160;valor&#160;resultado&#160;pela expressão&#160;de teste&#160;for&#160;<br/>false, a execução&#160;do&#160;laço&#160;é&#160;interrompida.&#160;<br/>
+4&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=5></a>•&#160;&#160;<b>Interrupção&#160;do&#160;laço:&#160;</b><br/>
+cmdStop&#160;::=&#160;'stop'&#160;';'&#160;<br/>
+O comando&#160;stop&#160;interrompe&#160;o&#160;laço&#160;mais&#160;próximo&#160;que&#160;o&#160;cerca.&#160;Ele&#160;só&#160;pode&#160;aparecer&#160;<br/>dentro&#160;do&#160;corpo&#160;de&#160;comandos&#160;de&#160;repetição&#160;while&#160;e&#160;for.&#160;&#160;<br/>
+•&#160;&#160;<b>Salto&#160;de&#160;iteração do&#160;laço:&#160;</b><br/>
+cmdSkip&#160;::= 'skip' ';'<b>&#160;</b><br/>
+O comando&#160;skip&#160;&#160;salta para&#160;a&#160;próxima iteração&#160;do&#160;laço&#160;mais&#160;próximo&#160;que&#160;o&#160;cerca,&#160;<br/>ignorando&#160;a execução&#160;dos&#160;comandos&#160;que&#160;o&#160;seguem dentro&#160;deste&#160;&#160;laço.&#160;&#160;Ele só&#160;pode&#160;<br/>aparecer dentro&#160;do&#160;corpo&#160;de&#160;comandos&#160;de&#160;repetição&#160;while&#160;e&#160;for.&#160;<br/>
+•&#160;&#160;<b>Retorno&#160;de&#160;subprograma:&#160;</b><br/>
+cmdReturn&#160;::=&#160;'return'&#160;[expressão]&#160;';'&#160;<br/>
+O comando&#160;return&#160;&#160;encerra a&#160;execução&#160;do&#160;subprograma que&#160;o&#160;&#160;cerca retornando&#160;o&#160;<br/>valor&#160;resultado&#160;pela&#160;expressão.&#160;A&#160;expressão&#160;de retorno&#160;de uma&#160;função&#160;deve resultar&#160;<br/>em um valor&#160;do&#160;mesmo&#160;tipo&#160;para o&#160;qual&#160;a função&#160;foi&#160;definida. &#160;Funções devem&#160;<br/>obrigatoriamente&#160;conter&#160;pelo&#160;menos&#160;um comando&#160;return.&#160;Já procedimentos podem&#160;<br/>ou não conter&#160;comandos&#160;return. Caso&#160;o&#160;tenham, eles&#160;devem&#160;retornar&#160;nada:&#160;return;&#160;<br/>Como&#160;o&#160;programa&#160;principal&#160;é&#160;definido&#160;por&#160;meio&#160;de&#160;uma&#160;função, ele&#160;deve&#160;conter&#160;pelo&#160;<br/>menos&#160;um&#160;comando&#160;return&#160;e o&#160;valor&#160;retornado&#160;deve ser&#160;um&#160;número&#160;inteiro.&#160;<br/>
+•&#160;&#160;<b>Chamada&#160;de procedimento:&#160;</b><br/>
+cmdChamadaProc ::= id&#160;'('&#160;expressão [, expressão]&#160;')'&#160;';'&#160;<br/>
+Como&#160;a chamada de procedimentos não&#160;resulta&#160;em&#160;um&#160;valor, é&#160;necessário&#160;um&#160;<br/>comando&#160;para sua&#160;execução.&#160;A&#160;chamada de funções possui&#160;sintaxe semelhante,&#160;<br/>exceto&#160;por&#160;não&#160;ser&#160;um&#160;comando, e sim&#160;uma&#160;expressão.&#160;<br/>
+•&#160;&#160;<b>Entrada Read:&#160;</b><br/>
+cmdRead&#160;::= 'read'&#160;variável&#160;';'&#160;<br/>
+•&#160;&#160;<b>Saída Write:&#160;</b><br/>
+cmdWite&#160;::=&#160;'write'&#160;expressão [, expressão]&#160;';'&#160;<br/>
+<b>Bloco&#160;<br/></b>Um&#160;bloco&#160;é uma sequência de&#160;(nenhuma&#160;ou&#160;várias)&#160;<b>declarações&#160;de&#160;subprogramas e&#160;<br/>variáveis</b>&#160;&#160;seguida de uma sequência de (nenhum&#160;ou&#160;vários)&#160;<b>comandos</b>.&#160;&#160;Um bloco&#160;é&#160;<br/>circundado&#160;por&#160;chaves&#160;<b>{</b>&#160;<b>}</b>.&#160;<br/>
+bloco&#160;::=&#160;'{'&#160;{decVar} {comando}&#160;'}'<b>&#160;</b><br/>
+5&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=6></a><b>Expressão&#160;<br/></b>Uma expressão&#160;pode&#160;conter&#160;valores dos três tipos definidos (inteiros,&#160;lógicos&#160;e&#160;strings),&#160;<br/>uso&#160;de&#160;variáveis,&#160;&#160;chamadas de&#160;função&#160;e outras expressões. Uma expressão&#160;pode estar&#160;<br/>cercada&#160;por&#160;parênteses e&#160;se&#160;relacionar&#160;&#160;a outras expressões&#160;por&#160;meio&#160;dos seguintes&#160;<br/>operadores:&#160;<br/>
+<b>Precedência&#160;&#160;Operador&#160;</b><br/>
+<b>Descrição&#160;</b><br/>
+<b>Associatividade&#160;</b><br/>
+-&#160;<br/>
+Negativo&#160;Unário&#160;<br/>
+<b>1&#160;</b><br/>
+À&#160;direita&#160;<br/>
+!&#160;<br/>
+Não&#160;lógico&#160;<br/>
+<b>2</b>&#160;<br/>
+* / %&#160;<br/>
+Multiplicação,&#160;divisão&#160;e resto&#160;<br/>
+<b>3</b>&#160;<br/>
++&#160;-&#160;<br/>
+Adição&#160;e&#160;subtração&#160;<br/>
+Operadores relacionais &lt;&#160;e&#160;≤&#160;<br/>
+&lt; &lt;=&#160;<br/>
+respectivamente&#160;<br/>
+<b>4</b>&#160;<br/>
+Operadores relacionais &gt;&#160;e&#160;≥&#160;<br/>
+&gt; &gt;=&#160;<br/>
+À esquerda&#160;<br/>
+respectivamente&#160;<br/>
+Operadores relacionais = e&#160;≠&#160;<br/>
+<b>5</b>&#160;<br/>
+== !=&#160;<br/>
+respectivamente&#160;<br/>
+<b>6</b>&#160;<br/>
+&amp;&amp;&#160;<br/>
+E lógico&#160;<br/>
+<b>7</b>&#160;<br/>
+||&#160;<br/>
+OU&#160;lógico&#160;<br/>
+<b>8</b>&#160;<br/>
+?&#160;:&#160;<br/>
+Condicional&#160;ternário&#160;<br/>
+À&#160;direita&#160;<br/>
+&#160;<br/>
+•&#160;&#160;O&#160;operador&#160;condicional&#160;ternário&#160;é formado&#160;da seguinte maneira:&#160;&#160;<br/>
+opTern&#160;::=&#160;expressão-teste&#160;'?'&#160;expressão-então&#160;':'&#160;expressão-senão&#160;<br/>
+A&#160;expressão&#160;teste&#160;é&#160;avaliada. Se o&#160;resultado&#160;for&#160;true&#160;a&#160;expressão&#160;então&#160;é&#160;resultada,&#160;<br/>caso&#160;contrário,&#160;a&#160;expressão&#160;senão&#160;&#160;é&#160;resultada. Dessa forma, o&#160;resultado&#160;desse&#160;<br/>operador&#160;é&#160;sempre&#160;uma expressão. O&#160;operador&#160;pode ser&#160;utilizado&#160;assim:&#160;x&#160;= a &gt; 0 ?&#160;<br/>a * 2 : a + 1;&#160;<br/>
+<b>Uso&#160;de&#160;variável&#160;<br/></b>Como&#160;o&#160;uso&#160;de&#160;uma&#160;variável&#160;resulta no&#160;valor&#160;armazenado&#160;pela variável,&#160;todo uso&#160;de&#160;<br/>variável&#160;é&#160;uma expressão. Variáveis simples são&#160;usadas por&#160;meio&#160;do&#160;identificador&#160;(nome)&#160;<br/>associado&#160;a ela e variáveis compostas (arranjo)&#160;são&#160;usadas por&#160;meio&#160;do&#160;identificador&#160;e&#160;a&#160;<br/>posição&#160;numérica&#160;do&#160;elemento&#160;acessado.&#160;<br/>
+variável&#160;::= id |&#160;id&#160;'['&#160;expressão&#160;']'&#160;<br/>
+Observe que&#160;a&#160;sintaxe&#160;do&#160;uso&#160;de&#160;variável&#160;não&#160;impede que&#160;uma variável&#160;declarada como&#160;<br/>simples seja utilizada como&#160;arranjo.&#160;Essa&#160;associação&#160;deve&#160;&#160;ser&#160;&#160;verificada&#160;na etapa&#160;de&#160;<br/>análise semântica.&#160;<br/>
+6&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=7></a><b>Especificação&#160;Semântica&#160;<br/>Programa&#160;</b><br/>
+A&#160;última declaração&#160;deve ser&#160;obrigatoriamente a da&#160;rotina principal, pela qual&#160;se dará o&#160;<br/>início&#160;da execução&#160;do&#160;programa. Todas as declarações realizadas no&#160;programa (fora de&#160;<br/>qualquer&#160;subprograma)&#160;estão&#160;dentro&#160;do&#160;escopo&#160;global.<b>&#160;</b><br/>
+<b>Declaração</b>&#160;<br/>
+•&#160;&#160;Declaração&#160;de variáveis, funções&#160;e procedimentos são&#160;responsáveis por adicionar&#160;<br/>
+os símbolos envolvidos e suas vinculações na tabela de símbolos.&#160;<br/>
+•&#160;&#160;Caso&#160;a declaração&#160;de&#160;uma variável&#160;contenha a&#160;inicialização&#160;da&#160;mesma, o&#160;tipo&#160;da&#160;<br/>
+expressão&#160;de inicialização&#160;deve ser&#160;o&#160;mesmo&#160;da variável.&#160;<br/>
+•&#160;&#160;A&#160;última declaração&#160;global&#160;deve&#160;ser&#160;de uma&#160;função&#160;chamada&#160;&#34;main&#34;&#160;do&#160;tipo&#160;int.&#160;<br/>
+<b>Comandos:&#160;</b><br/>
+<b>If&#160;</b><br/>
+•&#160;&#160;A&#160;expressão&#160;condicional do&#160;comando&#160;if&#160;deve&#160;resultar&#160;em um valor&#160;do&#160;tipo&#160;lógico.&#160;<br/>
+<b>While&#160;</b><br/>
+•&#160;&#160;A&#160;expressão&#160;condicional do&#160;comando&#160;while&#160;&#160;deve resultar&#160;em&#160;um&#160;valor&#160;do&#160;tipo&#160;<br/>
+lógico.&#160;<br/>
+<b>For&#160;</b><br/>
+•&#160;&#160;As atribuições da inicialização&#160;e&#160;do&#160;passo&#160;devem&#160;ser&#160;analisadas como&#160;um&#160;comando&#160;<br/>
+de&#160;atribuição&#160;normal&#160;<br/>
+•&#160;&#160;A&#160;expressão&#160;condicional deve&#160;resultar&#160;em um valor&#160;do&#160;tipo&#160;lógico.&#160;<br/>
+<b>Stop&#160;</b><br/>
+•&#160;&#160;O comando&#160;stop&#160;só&#160;pode aparecer&#160;dentro&#160;de um&#160;comando&#160;de repetição&#160;(while&#160;ou&#160;<br/>
+for).&#160;<br/>
+<b>Skip&#160;</b><br/>
+•&#160;&#160;O comando&#160;skip&#160;só&#160;pode&#160;aparecer&#160;dentro&#160;de&#160;um comando&#160;de&#160;repetição&#160;(while&#160;ou&#160;<br/>
+for).&#160;<br/>
+<b>Return&#160;</b><br/>
+•&#160;&#160;Caso&#160;apareça dentro&#160;de uma função, o&#160;tipo&#160;da expressão&#160;de retorno&#160;deve ser&#160;o&#160;<br/>
+mesmo&#160;do&#160;retorno&#160;declarado&#160;da&#160;função.&#160;Caso&#160;apareça&#160;dentro&#160;de&#160;um procedimento,&#160;<br/>o&#160;comando&#160;return&#160;não&#160;pode ter&#160;expressão.&#160;<br/>
+<b>Read&#160;</b><br/>
+•&#160;&#160;A&#160;variável&#160;utilizada&#160;no&#160;comando&#160;read&#160;&#160;deve estar&#160;declarada e&#160;visível&#160;no&#160;escopo&#160;<br/>
+atual.&#160;<br/>
+7&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=8></a><b>Write&#160;</b><br/>
+•&#160;&#160;Não&#160;há análise especial&#160;para o&#160;comando&#160;write.&#160;<br/>
+<b>Chamada&#160;de procedimento&#160;</b><br/>
+•&#160;&#160;O&#160;procedimento&#160;chamado&#160;deve estar&#160;declarado&#160;e visível&#160;no&#160;escopo&#160;atual.&#160;<br/>•&#160;&#160;O número&#160;de&#160;argumentos fornecidos deve ser&#160;o&#160;mesmo&#160;da declaração&#160;do&#160;<br/>
+procedimento.&#160;&#160;&#160;<br/>
+•&#160;&#160;Os&#160;argumentos&#160;fornecidos&#160;devem ter&#160;a&#160;mesma&#160;ordem de&#160;tipo&#160;utilizada&#160;na&#160;<br/>
+declaração&#160;do&#160;procedimento.&#160;<br/>
+<b>Atribuição&#160;</b><br/>
+•&#160;&#160;O&#160;lado&#160;esquerdo&#160;da atribuição&#160;deve ser&#160;uma variável&#160;declarada e visível&#160;no&#160;escopo&#160;<br/>
+atual&#160;(simples ou&#160;acesso&#160;de array)&#160;<br/>
+•&#160;&#160;O&#160;lado&#160;direito&#160;deve ser&#160;uma expressão&#160;com&#160;tipo&#160;igual&#160;ao&#160;da variável&#160;do&#160;lado&#160;<br/>
+esquerdo&#160;da atribuição.&#160;<br/>
+<b>Bloco&#160;</b><br/>
+•&#160;&#160;Define um&#160;novo&#160;escopo&#160;estático.&#160;O&#160;escopo&#160;é&#160;criado&#160;no&#160;início&#160;do&#160;bloco&#160;e&#160;finalizado&#160;<br/>
+no&#160;término&#160;do&#160;bloco.&#160;<br/>
+<b>Expressões&#160;</b><br/>
+<b>Aritmética&#160;(</b>+&#160;-&#160;* / % neg<b>)&#160;</b><br/>
+•&#160;&#160;O(s)&#160;operando(s)&#160;devem&#160;ser&#160;do&#160;tipo&#160;inteiro.&#160;O&#160;tipo&#160;resultante é inteiro.&#160;<br/>
+<b>Relacional (</b>&gt; &gt;= &lt; &lt;=<b>)&#160;</b><br/>
+•&#160;&#160;Os operandos devem&#160;ser&#160;do&#160;tipo&#160;inteiro. O&#160;tipo&#160;resultante é lógico.&#160;<br/>
+<b>Igualdade (</b>== !=<b>)&#160;</b><br/>
+•&#160;&#160;Os operandos devem&#160;ser&#160;do&#160;mesmo&#160;tipo. O&#160;tipo&#160;resultante é lógico.&#160;<br/>
+<b>Lógica (</b>&amp;&amp;&#160;|| !<b>)&#160;</b><br/>
+•&#160;&#160;O(s)&#160;operando(s)&#160;devem&#160;ser&#160;do&#160;tipo&#160;lógico.&#160;O&#160;tipo&#160;resultante é lógico.&#160;<br/>
+<b>Ternária&#160;</b><br/>
+•&#160;&#160;A&#160;expressão&#160;condicional deve&#160;resultar&#160;um valor&#160;do&#160;tipo&#160;lógico.&#160;<br/>•&#160;&#160;As expressões consequente e alternativa devem&#160;possuir&#160;o&#160;mesmo&#160;tipo.&#160;<br/>•&#160;&#160;O&#160;tipo&#160;resultante é o&#160;mesmo&#160;tipo&#160;da expressão&#160;consequente.&#160;<br/>
+<b>Uso&#160;de&#160;variável&#160;</b><br/>
+•&#160;&#160;A&#160;variável&#160;deve estar&#160;declarada e visível&#160;no&#160;escopo&#160;atual. O&#160;tipo&#160;resultante é o&#160;tipo&#160;<br/>
+declarado&#160;da variável.&#160;<br/>
+<b>Chamada&#160;de função:&#160;</b><br/>
+•&#160;&#160;Análise análoga à chamada de procedimento.&#160;<br/>
+8&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=9></a>•&#160;&#160;O&#160;tipo&#160;resultante&#160;é igual&#160;ao&#160;tipo&#160;declarado&#160;da&#160;função.&#160;<br/>
+<b>&#160;</b><br/>
+<b>&#160;</b><br/>
+9&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name=10></a><b>Exemplo&#160;de&#160;programa:&#160;<br/>Bubble-Sort&#160;<br/></b>&#160;<br/>
+var v[10]:&#160;int;&#160;<br/>&#160;<br/>// Procedimento de ordenação por troca&#160;<br/>// Observe&#160;como um parâmetro de arranjo&#160;é declarado&#160;<br/>&#160;<br/>def bubblesort(v[]:&#160;int; n:&#160;int) {&#160;<br/>&#160; &#160;&#160;var&#160;i=0, j: int;&#160;<br/>&#160; &#160;&#160;var&#160;trocou =&#160;true: bool;&#160;<br/>&#160; &#160;&#160;while&#160;(i &lt; n-1 &amp;&amp; trocou)&#160;{&#160;<br/>&#160; &#160; &#160; &#160;&#160;trocou&#160;=&#160;false;&#160;<br/>&#160; &#160; &#160; &#160;&#160;for (j=0;&#160;j&lt;(n-i-1); j++) {&#160;<br/>&#160; &#160; &#160; &#160;&#160; &#160;&#160;&#160;if (v[j]&#160;&gt; v[j+1])&#160;{&#160;<br/>&#160; &#160; &#160; &#160;&#160; &#160;&#160; &#160; &#160;&#160;var&#160;aux = v[j]: int;&#160;<br/>&#160; &#160; &#160; &#160;&#160; &#160;&#160; &#160; &#160;&#160;v[j]&#160;= v[j+1];&#160;<br/>&#160; &#160; &#160; &#160;&#160; &#160;&#160; &#160; &#160;&#160;v[j+1] = aux;&#160;<br/>&#160; &#160; &#160; &#160;&#160; &#160;&#160; &#160; &#160;&#160;trocou = true;&#160;<br/>&#160; &#160; &#160; &#160;&#160; &#160;&#160;&#160;}&#160;<br/>&#160; &#160; &#160; &#160;&#160;}&#160;<br/>&#160; &#160; &#160; &#160;&#160;i&#160;+=&#160;1;&#160;<br/>&#160; &#160;&#160;}&#160;<br/>}&#160;<br/>&#160;<br/>def main(): int {&#160;<br/>&#160; &#160;&#160;var&#160;i:&#160;int;&#160;<br/>&#160; &#160;&#160;write&#160;&#34;Digite&#160;os&#160;valores do arranjo:\n&#34;;&#160;<br/>&#160; &#160;&#160;for&#160;(i=0; i&lt;10;&#160;i++) {&#160;<br/>&#160; &#160; &#160; &#160;&#160;write &#34;A[&#34;,&#160;i, &#34;] =&#160;&#34;;&#160;<br/>&#160; &#160; &#160; &#160;&#160;read v[i];&#160;<br/>&#160; &#160;&#160;}&#160;<br/>&#160; &#160;&#160;bubblesort(v,&#160;10);&#160;<br/>&#160; &#160;&#160;&#160;<br/>&#160; &#160;&#160;write&#160;&#34;Arranjo&#160;ordenado:\nA = &#34;;&#160;<br/>&#160; &#160;&#160;for&#160;(i=0; i&lt;10;&#160;i++) {&#160;<br/>&#160; &#160; &#160; &#160;&#160;write v[i],&#160;&#34; &#34;;&#160;<br/>&#160; &#160;&#160;}&#160;<br/>}&#160;<br/>
+10&#160;<br/>
+&#160;<br/>
+<hr/>
+<a name="outline"></a><h1>Document Outline</h1>
+<ul>
+<li><a href="docs.html#1">Características da linguagem</a></li>
+<li><a href="docs.html#1">Sistema de Tipos</a>
+<ul>
+<li><a href="docs.html#1">Tipos primitivos</a></li>
+<li><a href="docs.html#1">Tipos Compostos (arranjo)</a></li>
+<li><a href="docs.html#1">O tipo string</a></li>
+</ul>
+</li>
+<li><a href="docs.html#1">Especificação Léxica</a>
+<ul>
+<li><a href="docs.html#1">Identificadores</a></li>
+<li><a href="docs.html#2">Números</a></li>
+<li><a href="docs.html#2">Strings</a></li>
+<li><a href="docs.html#2">Comentários</a></li>
+<li><a href="docs.html#2">Palavras reservadas e símbolos</a></li>
+</ul>
+</li>
+<li><a href="docs.html#2">Especificação Sintática</a>
+<ul>
+<li><a href="docs.html#2">Programa</a></li>
+<li><a href="docs.html#2">Variáveis</a>
+<ul>
+<li><a href="docs.html#3">Exemplo:</a></li>
+<li><a href="docs.html#3">Declaração de Variáveis</a></li>
+</ul>
+</li>
+<li><a href="docs.html#3">Subprogramas (procedimentos e funções)</a>
+<ul>
+<li><a href="docs.html#3">Declaração de Subprogramas</a></li>
+<li><a href="docs.html#3">Declaração de procedimento</a></li>
+<li><a href="docs.html#3">Declaração de função</a></li>
+<li><a href="docs.html#3">Lista de Parâmetros</a></li>
+</ul>
+</li>
+<li><a href="docs.html#4">Comandos</a></li>
+<li><a href="docs.html#5">Bloco</a></li>
+<li><a href="docs.html#6">Expressão</a>
+<ul>
+<li><a href="docs.html#6">Uso de variável</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="docs.html#7">Especificação Semântica</a>
+<ul>
+<li><a href="docs.html#7">Comandos:</a>
+<ul>
+<li><a href="docs.html#7">If</a></li>
+<li><a href="docs.html#7">While</a></li>
+<li><a href="docs.html#7">For</a></li>
+<li><a href="docs.html#7">Stop</a></li>
+<li><a href="docs.html#7">Skip</a></li>
+<li><a href="docs.html#7">Return</a></li>
+<li><a href="docs.html#7">Read</a></li>
+<li><a href="docs.html#8">Write</a></li>
+<li><a href="docs.html#8">Chamada de procedimento</a></li>
+<li><a href="docs.html#8">Atribuição</a></li>
+<li><a href="docs.html#8">Bloco</a></li>
+</ul>
+</li>
+<li><a href="docs.html#8">Expressões</a>
+<ul>
+<li><a href="docs.html#8">Aritmética (+ - * / % neg)</a></li>
+<li><a href="docs.html#8">Relacional (&gt; &gt;= &lt; &lt;=)</a></li>
+<li><a href="docs.html#8">Igualdade (== !=)</a></li>
+<li><a href="docs.html#8">Lógica (&amp;&amp; || !)</a></li>
+<li><a href="docs.html#8">Ternária</a></li>
+<li><a href="docs.html#8">Uso de variável</a></li>
+<li><a href="docs.html#8">Chamada de função:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="docs.html#10">Exemplo de programa:</a></li>
+</ul>
+<hr/>
+</body>
+</html>
