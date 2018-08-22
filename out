@@ -1,0 +1,206 @@
+/home/rafaellb/Documents/doc-parser/app.php:84:
+array(29) {
+  [0] =>
+  array(2) {
+    'tp' =>
+    string(5) "TITLE"
+    'content' =>
+    string(50) "Especificação da Linguagem [nome?] (Versão 0.1)"
+  }
+  [1] =>
+  array(2) {
+    'tp' =>
+    string(5) "TITLE"
+    'content' =>
+    string(29) "Características da linguagem"
+  }
+  [2] =>
+  array(2) {
+    'tp' =>
+    string(5) "BLOCK"
+    'content' =>
+    string(197) "• Imperativa;• Fortemente tipada;• Declaração explícita de variáveis;• Vinculação estática de tipos;• Sistema de escopo estático (léxico);• Sensível à caixa (case-sensitive);"
+  }
+  [3] =>
+  array(2) {
+    'tp' =>
+    string(5) "TITLE"
+    'content' =>
+    string(16) "Sistema de Tipos"
+  }
+  [4] =>
+  array(2) {
+    'tp' =>
+    string(5) "BLOCK"
+    'content' =>
+    string(90) "A linguagem possui um sistema de tipo com duas classes: tipos primitivos e tiposagregados."
+  }
+  [5] =>
+  array(2) {
+    'tp' =>
+    string(5) "TITLE"
+    'content' =>
+    string(16) "Tipos primitivos"
+  }
+  [6] =>
+  array(2) {
+    'tp' =>
+    string(5) "BLOCK"
+    'content' =>
+    string(132) "Os tipos primitivos são números inteiros, valores lógicos e strings, representadosrespectivamente pelos tipos int, bool e string."
+  }
+  [7] =>
+  array(2) {
+    'tp' =>
+    string(5) "TITLE"
+    'content' =>
+    string(25) "Tipos Compostos (arranjo)"
+  }
+  [8] =>
+  array(2) {
+    'tp' =>
+    string(5) "BLOCK"
+    'content' =>
+    string(155) "O tipo agregado é um arranjo de algum tipo primitivo. Dessa forma, podemos ter asvariantes: arranjo de inteiros, arranjo de lógicos e arranjo de strings."
+  }
+  [9] =>
+  array(2) {
+    'tp' =>
+    string(5) "TITLE"
+    'content' =>
+    string(13) "O tipo string"
+  }
+  [10] =>
+  array(2) {
+    'tp' =>
+    string(5) "BLOCK"
+    'content' =>
+    string(217) "Dados do tipo string são constantes e não são indexados como na maioria das linguagens.O objetivo da existência do tipo string na linguagem é apenas fornecer uma maneira deapresentar (escrever) mensagens na tela."
+  }
+  [11] =>
+  array(2) {
+    'tp' =>
+    string(5) "TITLE"
+    'content' =>
+    string(23) "Especificação Léxica"
+  }
+  [12] =>
+  array(2) {
+    'tp' =>
+    string(8) "SUBTITLE"
+    'content' =>
+    string(15) "Identificadores"
+  }
+  [13] =>
+  array(2) {
+    'tp' =>
+    string(5) "BLOCK"
+    'content' =>
+    string(353) "Chamamos de identificador qualquer nome criado pelo usuário da linguagem. Osidentificadores seguem a mesma regra de formação da linguagem C:• Devem iniciar com uma letra (minúscula ou maiúscula) ou um subtraço seguido deletras, subtraços ou dígitos entre 0 e 9.Um identificador será expresso pelo símbolo id nas especificações sintáticas."
+  }
+  [14] =>
+  array(2) {
+    'tp' =>
+    string(8) "SUBTITLE"
+    'content' =>
+    string(8) "Números"
+  }
+  [15] =>
+  array(2) {
+    'tp' =>
+    string(5) "BLOCK"
+    'content' =>
+    string(376) "Os números devem ser representados na base decimal e podem conter qualquercombinação de dígitos entre 0 e 9. Os números negativos não serão processados na faseléxica, mas sim na sintática e semântica. Dessa forma, o número -42, por exemplo,consiste de dois lexemas: '-' e '42', e serão tratados como uma operação aritmética nasanálises sintática e semântica."
+  }
+  [16] =>
+  array(2) {
+    'tp' =>
+    string(8) "SUBTITLE"
+    'content' =>
+    string(7) "Strings"
+  }
+  [17] =>
+  array(2) {
+    'tp' =>
+    string(5) "BLOCK"
+    'content' =>
+    string(73) "As strings possuem a mesma regra de formação definida pela linguagem C."
+  }
+  [18] =>
+  array(2) {
+    'tp' =>
+    string(8) "SUBTITLE"
+    'content' =>
+    string(12) "Comentários"
+  }
+  [19] =>
+  array(2) {
+    'tp' =>
+    string(5) "BLOCK"
+    'content' =>
+    string(314) "A linguagem possui apenas comentários de linha:• Começam com // e seguem até o final da linha.De forma geral, os comentários podem conter qualquer tipo de símbolo, inclusive os nãopermitidos pela linguagem. Os comentários devem ser processados corretamente peloanalisador léxico e em seguida descartados."
+  }
+  [20] =>
+  array(2) {
+    'tp' =>
+    string(8) "SUBTITLE"
+    'content' =>
+    string(31) "Palavras reservadas e símbolos"
+  }
+  [21] =>
+  array(2) {
+    'tp' =>
+    string(5) "BLOCK"
+    'content' =>
+    string(157) "As palavras reservadas e símbolos da linguagem são:bool false for if int read return skip stop string true while write( ) [ ] { } , ; + - * / == != > >= < "
+  }
+  [22] =>
+  array(2) {
+    'tp' =>
+    string(5) "TITLE"
+    'content' =>
+    string(26) "Especificação Sintática"
+  }
+  [23] =>
+  array(2) {
+    'tp' =>
+    string(8) "SUBTITLE"
+    'content' =>
+    string(8) "Programa"
+  }
+  [24] =>
+  array(2) {
+    'tp' =>
+    string(5) "BLOCK"
+    'content' =>
+    string(117) "Um programa consiste de uma sequência não vazia de declarações de variáveis esubprogramas.programa ::= dec {dec}"
+  }
+  [25] =>
+  array(2) {
+    'tp' =>
+    string(8) "SUBTITLE"
+    'content' =>
+    string(10) "Variáveis"
+  }
+  [26] =>
+  array(2) {
+    'tp' =>
+    string(5) "BLOCK"
+    'content' =>
+    string(297) "Existem dois tipos de variáveis: as simples e as agregadas. Variáveis simples suportamapenas um único valor de um determinado tipo primitivo em um determinado momento.Variáveis agregadas são de tipos compostos (arranjos), suportando mais de um valor deum mesmo tipo em um determinado momento."
+  }
+  [27] =>
+  array(2) {
+    'tp' =>
+    string(8) "SUBTITLE"
+    'content' =>
+    string(26) "Declaração de Variáveis"
+  }
+  [28] =>
+  array(2) {
+    'tp' =>
+    string(5) "BLOCK"
+    'content' =>
+    string(467) "decVar ::= 'var' listaSpecVars ':' tipo ';'listaSpecVars ::= specVar {',' specVar}specVar ::= specVarSimples | specVarSimplesIni |specVarArranjo | specVarArranjoIniObserve que a declaração de variáveis é indicada pela palavra reservada var. Observetambém que múltiplas variáveis podem ser declaradas de uma vez e que elas podem serinicializadas durante a declaração. Veja que, para os arranjos, o tamanho do mesmotambém deve ser especificado na declaração"
+  }
+}
