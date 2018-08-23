@@ -6,4 +6,4 @@ Documentação
 
 Branch com as especificações da linguagem
 
-Doc Online Compilada.: (https://ilp2018.readthedocs.io/en/latest/)
+Doc Online Compilada.: https://ilp2018.readthedocs.io/en/latest/
