@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to ilp2018's documentation!
+Documentação Linguagem ILP 2018!
 ===================================
 
 .. toctree::
@@ -19,7 +19,7 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
-Especificação da Linguagem [nome?] (Versão 0.1)
+Especificação da Linguagem [nome?] (Versão 0.4)
 =============================
 
 
@@ -57,7 +57,7 @@ respectivamente pelos tipos int, bool e string.
 
 
 
-Tipos Compostos (arranjo)
+Tipos Agregados (arranjo)
 =============================
 
 
@@ -88,10 +88,19 @@ Identificadores
 
 Chamamos de identificador qualquer nome criado pelo usuário da linguagem. Os
 identificadores seguem a mesma regra de formação da linguagem C:
-
 • Devem iniciar com uma letra (minúscula ou maiúscula) ou um subtraço seguido de
 letras, subtraços ou dígitos entre 0 e 9.
 Um identificador será expresso pelo símbolo id nas especificações sintáticas.
+
+
+
+
+Literais
+########################
+
+
+Daremos o nome de literal a todo valor fixado no código. A linguagem possui
+representação de literais para seus três tipos primitivos.
 
 
 
@@ -113,7 +122,18 @@ Strings
 ########################
 
 
-As strings possuem a mesma regra de formação definida pela linguagem C.
+Os literais string possuem a mesma regra de formação definida pela linguagem C.
+Exemplo: "isso é uma string!\n"
+
+
+
+
+Lógicos
+########################
+
+
+Os literais lógicos verdadeiro e falso são representados pelos lexemas true e false
+respectivamente.
 
 
 
@@ -136,9 +156,8 @@ Palavras reservadas e símbolos
 
 
 As palavras reservadas e símbolos da linguagem são:
-
-bool false for if int read return skip stop string true while write
-( ) [ ] { } , ; + - * / == != > >= < 
+bool else false for if int read return skip stop string true var while write
+( ) [ ] { } , ; + - * / % == != > >= < 
 
 
 
@@ -164,8 +183,6 @@ Variáveis
 
 Existem dois tipos de variáveis: as simples e as agregadas. Variáveis simples suportam
 apenas um único valor de um determinado tipo primitivo em um determinado momento.
-Variáveis agregadas são de tipos compostos (arranjos), suportando mais de um valor de
-um mesmo tipo em um determinado momento.
 
 
 
@@ -180,8 +197,9 @@ specVar ::= specVarSimples | specVarSimplesIni |
 specVarArranjo | specVarArranjoIni
 Observe que a declaração de variáveis é indicada pela palavra reservada var. Observe
 também que múltiplas variáveis podem ser declaradas de uma vez e que elas podem ser
-inicializadas durante a declaração. Veja que, para os arranjos, o tamanho do mesmo
-também deve ser especificado na declaração
+inicializadas durante a declaração.
+Na declaração de arranjos, o tamanho do mesmo deve ser especificado como um literal
+numérico.
 
 
 
@@ -195,17 +213,31 @@ do tipo de retorno para procedimentos. Diferentemente da linguagem C, por exempl
 não há separação entre declaração e definição de subprogramas, isto é, o subprograma é
 declarado durante sua própria definição.
 Exemplo:
-Declaração de Procedimento Declração de Função
+
+
+
+
+Declaração de Procedimento
+########################
+
+
 def proc(y: int) {
 if (y < 0) {
 return;
 }
-x = 2 * y;
+x = 2 * y; // x é global!
 }
 
-def func(x, y: int): int {
-z = x * y: int;
-return z + 1;
+
+
+
+Declração de Função
+########################
+
+
+def func(x[], y: int; z: bool): int {
+a = x[y-1]: int;
+return a + 1;
 }
 
 
@@ -229,7 +261,7 @@ decProc ::= 'def' id '(' [listaParâmetros] ')' bloco
 
 
 
-Declaração de função
+Declaração de Função
 ########################
 
 
@@ -242,11 +274,11 @@ Lista de Parâmetros
 ########################
 
 
-listaParâmetros ::= paramsSpec {';' paramsSpec}
-paramsSpec ::= param {, param} : tipo
-param ::= id | id '[]
-Parâmetros de tipo primitivo são passados naturalmente por cópia e parâmetros de tipo
-arranjo são passados naturalmente por referência.
+listaParâmetros ::= specParams {';' specParams}
+specParams ::= param {',' param} ':' tipo
+param ::= id | id '[]'
+Parâmetros de tipo inteiro ou lógico são passados naturalmente por cópia e parâmetros
+de tipo arranjo ou string são passados naturalmente por referência.
 
 
 
@@ -256,7 +288,7 @@ Comandos
 
 
 Um comando pode ser um comando simples ou bloco de comandos.
-cmd ::= cmdSimples | bloco
+comando ::= cmdSimples | bloco
 A seguir são relacionados os comandos simples da linguagem:
 
 
@@ -310,9 +342,9 @@ Laço For:
 cmdFor ::= 'for' '(' atrib-ini ';' expressão ';' atrib-passo ')' comando
 O laço for inicia executando a atribuição de inicialização. A partir daí, antes de cada
 iteração, o resultado da expressão de teste é verificado. Se ele for true, o comando
-corpo é executado e o a atribuição de passo é executada em seguida, reiniciando o
+corpo é executado e a atribuição de passo é executada em seguida, reiniciando o
 processo. Se antes de qualquer iteração o valor resultado pela expressão de teste for
-false, a execução do laço é interrompida.
+false, a execução do laço é interrompida
 
 
 
@@ -356,11 +388,11 @@ menos um comando return e o valor retornado deve ser um número inteiro.
 
 
 
-Chamada de procedimento:
+Chamada de Procedimento:
 ########################
 
 
-cmdChamadaProc ::= id '(' expressão [, expressão] ')' ';'
+cmdChamadaProc ::= id '(' [expressão {',' expressão}] ')' ';'
 Como a chamada de procedimentos não resulta em um valor, é necessário um
 comando para sua execução. A chamada de funções possui sintaxe semelhante,
 exceto por não ser um comando, e sim uma expressão.
@@ -393,7 +425,7 @@ Bloco
 Um bloco é uma sequência de (nenhuma ou várias) declarações de subprogramas e
 variáveis seguida de uma sequência de (nenhum ou vários) comandos. Um bloco é
 circundado por chaves { }.
-bloco ::= '{' {decVar} {comando} '}'
+bloco ::= '{' {dec} {comando} '}'
 
 
 
@@ -406,9 +438,10 @@ Uma expressão pode conter valores dos três tipos definidos (inteiros, lógicos
 uso de variáveis, chamadas de função e outras expressões. Uma expressão pode estar
 cercada por parênteses e se relacionar a outras expressões por meio dos seguintes
 operadores:
---- TABELA ---
 
-
+.. csv-table:: Tabela de expressões
+    :file: tabela.csv
+    :header-rows: 1
 
 
 O operador condicional ternário é formado da seguinte maneira:
@@ -643,7 +676,7 @@ Chamada de função:
 
 
 • Análise análoga à chamada de procedimento.
-• O tipo resultante é igual ao tipo declarado da funçã
+• O tipo resultante é igual ao tipo declarado da função
 
 
 

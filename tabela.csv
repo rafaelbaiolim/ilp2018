@@ -1,0 +1,11 @@
+Precedência, Operadores, Descrição, Associatividade 
+1, '  - '  , Negativo Unário, direita
+1, '  ! '  , Não Lógico, direita
+2, '  * '   '  / '   '  % '  , Multiplicação; divisão e resto, esquerda
+3, '  + '   '  - '  , Adição e subtração, esquerda
+4, '  < '   '  <= '  , Operadores relacionais < e ≤ respectivamente, esquerda
+4, '  > '   '  >= '  , Operadores relacionais > e ≥ respectivamente, esquerda
+5, '  == '   '  != '  , Operadores relacionais = e ≠ respectivamente, esquerda
+6, '  && '  , E lógico, esquerda
+7, '  || '  , OU lógico, esquerda
+8, '  ? '   '  : '  , Condicional ternário, direita

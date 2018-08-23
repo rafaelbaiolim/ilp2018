@@ -74,15 +74,15 @@ for ($x = 0; $x < sizeof($content_exp); $x++) {
             if (empty($data[$jProcess]['content'])) {
                 $data[$jProcess]['content'] = $content_exp[$x];
             } else {
+                if(preg_match('#da linguagem são:#i',$content_exp[$x])  
+                 || preg_match('#da linguagem C#i',$content_exp[$x])
+                ){
+                //    $data[$jProcess]['content'] .= PHP_EOL . PHP_EOL;
+                }
                 $data[$jProcess]['content'] .= $content_exp[$x];
             }
             if($tp == 'BLOCK'){
                 $data[$jProcess]['content'] .= PHP_EOL;
-                if(preg_match('#são:#i',$content_exp[$x]) || 
-                preg_match('#C:#i',$content_exp[$x])
-                ){
-                    $data[$jProcess]['content'] .= PHP_EOL;
-                }
             }
 
             $x++;

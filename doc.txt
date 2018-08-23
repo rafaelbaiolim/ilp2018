@@ -390,7 +390,11 @@ Uma expressão pode conter valores dos três tipos definidos (inteiros, lógicos
 uso de variáveis, chamadas de função e outras expressões. Uma expressão pode estar
 cercada por parênteses e se relacionar a outras expressões por meio dos seguintes
 operadores:
---- TABELA ---
+
+.. csv-table:: Tabela de expressões
+   :file: tabela.csv
+   :header-rows: 1
+
 ##block
 
 #block

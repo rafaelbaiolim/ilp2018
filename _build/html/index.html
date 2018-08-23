@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to ilp2018’s documentation! &mdash; ilp2018  documentation</title>
+  <title>Documentação Linguagem ILP 2018! &mdash; ilp2018  documentation</title>
   
 
   
@@ -78,18 +78,20 @@
             
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Welcome to ilp2018’s documentation!</a></li>
+<li><a class="reference internal" href="#">Documentação Linguagem ILP 2018!</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
-<li><a class="reference internal" href="#especificacao-da-linguagem-nome-versao-0-1">Especificação da Linguagem [nome?] (Versão 0.1)</a></li>
+<li><a class="reference internal" href="#especificacao-da-linguagem-nome-versao-0-4">Especificação da Linguagem [nome?] (Versão 0.4)</a></li>
 <li><a class="reference internal" href="#caracteristicas-da-linguagem">Características da linguagem</a></li>
 <li><a class="reference internal" href="#sistema-de-tipos">Sistema de Tipos</a></li>
 <li><a class="reference internal" href="#tipos-primitivos">Tipos primitivos</a></li>
-<li><a class="reference internal" href="#tipos-compostos-arranjo">Tipos Compostos (arranjo)</a></li>
+<li><a class="reference internal" href="#tipos-agregados-arranjo">Tipos Agregados (arranjo)</a></li>
 <li><a class="reference internal" href="#o-tipo-string">O tipo string</a></li>
 <li><a class="reference internal" href="#especificacao-lexica">Especificação Léxica</a><ul>
 <li><a class="reference internal" href="#identificadores">Identificadores</a></li>
+<li><a class="reference internal" href="#literais">Literais</a></li>
 <li><a class="reference internal" href="#numeros">Números</a></li>
 <li><a class="reference internal" href="#strings">Strings</a></li>
+<li><a class="reference internal" href="#logicos">Lógicos</a></li>
 <li><a class="reference internal" href="#comentarios">Comentários</a></li>
 <li><a class="reference internal" href="#palavras-reservadas-e-simbolos">Palavras reservadas e símbolos</a></li>
 </ul>
@@ -99,9 +101,11 @@
 <li><a class="reference internal" href="#variaveis">Variáveis</a></li>
 <li><a class="reference internal" href="#declaracao-de-variaveis">Declaração de Variáveis</a></li>
 <li><a class="reference internal" href="#subprogramas-procedimentos-e-funcoes">Subprogramas (procedimentos e funções)</a></li>
+<li><a class="reference internal" href="#declaracao-de-procedimento">Declaração de Procedimento</a></li>
+<li><a class="reference internal" href="#declracao-de-funcao">Declração de Função</a></li>
 <li><a class="reference internal" href="#declaracao-de-subprogramas">Declaração de Subprogramas</a></li>
-<li><a class="reference internal" href="#declaracao-de-procedimento">Declaração de procedimento</a></li>
-<li><a class="reference internal" href="#declaracao-de-funcao">Declaração de função</a></li>
+<li><a class="reference internal" href="#id1">Declaração de procedimento</a></li>
+<li><a class="reference internal" href="#declaracao-de-funcao">Declaração de Função</a></li>
 <li><a class="reference internal" href="#lista-de-parametros">Lista de Parâmetros</a></li>
 </ul>
 </li>
@@ -113,7 +117,7 @@
 <li><a class="reference internal" href="#interrupcao-do-laco">Interrupção do laço:</a></li>
 <li><a class="reference internal" href="#salto-de-iteracao-do-laco">Salto de iteração do laço:</a></li>
 <li><a class="reference internal" href="#retorno-de-subprograma">Retorno de subprograma:</a></li>
-<li><a class="reference internal" href="#chamada-de-procedimento">Chamada de procedimento:</a></li>
+<li><a class="reference internal" href="#chamada-de-procedimento">Chamada de Procedimento:</a></li>
 <li><a class="reference internal" href="#entrada-read">Entrada Read:</a></li>
 <li><a class="reference internal" href="#saida-write">Saída Write:</a></li>
 <li><a class="reference internal" href="#bloco">Bloco</a></li>
@@ -124,11 +128,11 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#especificacao-semantica">Especificação Semântica</a><ul>
-<li><a class="reference internal" href="#id3">Programa</a></li>
+<li><a class="reference internal" href="#id4">Programa</a></li>
 <li><a class="reference internal" href="#declaracao">Declaração</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id4">Comandos:</a><ul>
+<li><a class="reference internal" href="#id5">Comandos:</a><ul>
 <li><a class="reference internal" href="#if">If</a></li>
 <li><a class="reference internal" href="#while">While</a></li>
 <li><a class="reference internal" href="#for">For</a></li>
@@ -137,8 +141,8 @@
 <li><a class="reference internal" href="#return">Return</a></li>
 <li><a class="reference internal" href="#read">Read</a></li>
 <li><a class="reference internal" href="#write">Write</a></li>
-<li><a class="reference internal" href="#id5">Atribuição</a></li>
-<li><a class="reference internal" href="#id6">Bloco</a></li>
+<li><a class="reference internal" href="#id6">Atribuição</a></li>
+<li><a class="reference internal" href="#id7">Bloco</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#expressoes">Expressões</a><ul>
@@ -147,7 +151,7 @@
 <li><a class="reference internal" href="#igualdade">Igualdade (== !=)</a></li>
 <li><a class="reference internal" href="#logica">Lógica (&amp;&amp; || !)</a></li>
 <li><a class="reference internal" href="#ternaria">Ternária</a></li>
-<li><a class="reference internal" href="#id7">Uso de variável</a></li>
+<li><a class="reference internal" href="#id8">Uso de variável</a></li>
 <li><a class="reference internal" href="#chamada-de-funcao">Chamada de função:</a></li>
 </ul>
 </li>
@@ -196,7 +200,7 @@
     
       <li><a href="#">Docs</a> &raquo;</li>
         
-      <li>Welcome to ilp2018’s documentation!</li>
+      <li>Documentação Linguagem ILP 2018!</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -215,8 +219,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcome-to-ilp2018-s-documentation">
-<h1>Welcome to ilp2018’s documentation!<a class="headerlink" href="#welcome-to-ilp2018-s-documentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="documentacao-linguagem-ilp-2018">
+<h1>Documentação Linguagem ILP 2018!<a class="headerlink" href="#documentacao-linguagem-ilp-2018" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -228,8 +232,8 @@
 <li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
 </ul>
 </div>
-<div class="section" id="especificacao-da-linguagem-nome-versao-0-1">
-<h1>Especificação da Linguagem [nome?] (Versão 0.1)<a class="headerlink" href="#especificacao-da-linguagem-nome-versao-0-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="especificacao-da-linguagem-nome-versao-0-4">
+<h1>Especificação da Linguagem [nome?] (Versão 0.4)<a class="headerlink" href="#especificacao-da-linguagem-nome-versao-0-4" title="Permalink to this headline">¶</a></h1>
 </div>
 <div class="section" id="caracteristicas-da-linguagem">
 <h1>Características da linguagem<a class="headerlink" href="#caracteristicas-da-linguagem" title="Permalink to this headline">¶</a></h1>
@@ -252,8 +256,8 @@ agregados.</p>
 <p>Os tipos primitivos são números inteiros, valores lógicos e strings, representados
 respectivamente pelos tipos int, bool e string.</p>
 </div>
-<div class="section" id="tipos-compostos-arranjo">
-<h1>Tipos Compostos (arranjo)<a class="headerlink" href="#tipos-compostos-arranjo" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tipos-agregados-arranjo">
+<h1>Tipos Agregados (arranjo)<a class="headerlink" href="#tipos-agregados-arranjo" title="Permalink to this headline">¶</a></h1>
 <p>O tipo agregado é um arranjo de algum tipo primitivo. Dessa forma, podemos ter as
 variantes: arranjo de inteiros, arranjo de lógicos e arranjo de strings.</p>
 </div>
@@ -268,12 +272,15 @@ apresentar (escrever) mensagens na tela.</p>
 <div class="section" id="identificadores">
 <h2>Identificadores<a class="headerlink" href="#identificadores" title="Permalink to this headline">¶</a></h2>
 <p>Chamamos de identificador qualquer nome criado pelo usuário da linguagem. Os
-identificadores seguem a mesma regra de formação da linguagem C:</p>
-<ul class="simple">
-<li>Devem iniciar com uma letra (minúscula ou maiúscula) ou um subtraço seguido de</li>
-</ul>
-<p>letras, subtraços ou dígitos entre 0 e 9.
+identificadores seguem a mesma regra de formação da linguagem C:
+• Devem iniciar com uma letra (minúscula ou maiúscula) ou um subtraço seguido de
+letras, subtraços ou dígitos entre 0 e 9.
 Um identificador será expresso pelo símbolo id nas especificações sintáticas.</p>
+</div>
+<div class="section" id="literais">
+<h2>Literais<a class="headerlink" href="#literais" title="Permalink to this headline">¶</a></h2>
+<p>Daremos o nome de literal a todo valor fixado no código. A linguagem possui
+representação de literais para seus três tipos primitivos.</p>
 </div>
 <div class="section" id="numeros">
 <h2>Números<a class="headerlink" href="#numeros" title="Permalink to this headline">¶</a></h2>
@@ -285,7 +292,13 @@ análises sintática e semântica.</p>
 </div>
 <div class="section" id="strings">
 <h2>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h2>
-<p>As strings possuem a mesma regra de formação definida pela linguagem C.</p>
+<p>Os literais string possuem a mesma regra de formação definida pela linguagem C.
+Exemplo: “isso é uma string!n”</p>
+</div>
+<div class="section" id="logicos">
+<h2>Lógicos<a class="headerlink" href="#logicos" title="Permalink to this headline">¶</a></h2>
+<p>Os literais lógicos verdadeiro e falso são representados pelos lexemas true e false
+respectivamente.</p>
 </div>
 <div class="section" id="comentarios">
 <h2>Comentários<a class="headerlink" href="#comentarios" title="Permalink to this headline">¶</a></h2>
@@ -297,9 +310,9 @@ analisador léxico e em seguida descartados.</p>
 </div>
 <div class="section" id="palavras-reservadas-e-simbolos">
 <h2>Palavras reservadas e símbolos<a class="headerlink" href="#palavras-reservadas-e-simbolos" title="Permalink to this headline">¶</a></h2>
-<p>As palavras reservadas e símbolos da linguagem são:</p>
-<p>bool false for if int read return skip stop string true while write
-( ) [ ] { } , ; + - * / == != &gt; &gt;= &lt;</p>
+<p>As palavras reservadas e símbolos da linguagem são:
+bool else false for if int read return skip stop string true var while write
+( ) [ ] { } , ; + - * / % == != &gt; &gt;= &lt;</p>
 </div>
 </div>
 <div class="section" id="especificacao-sintatica">
@@ -313,9 +326,7 @@ programa ::= dec {dec}</p>
 <div class="section" id="variaveis">
 <h2>Variáveis<a class="headerlink" href="#variaveis" title="Permalink to this headline">¶</a></h2>
 <p>Existem dois tipos de variáveis: as simples e as agregadas. Variáveis simples suportam
-apenas um único valor de um determinado tipo primitivo em um determinado momento.
-Variáveis agregadas são de tipos compostos (arranjos), suportando mais de um valor de
-um mesmo tipo em um determinado momento.</p>
+apenas um único valor de um determinado tipo primitivo em um determinado momento.</p>
 </div>
 <div class="section" id="declaracao-de-variaveis">
 <h2>Declaração de Variáveis<a class="headerlink" href="#declaracao-de-variaveis" title="Permalink to this headline">¶</a></h2>
@@ -325,8 +336,9 @@ specVar ::= specVarSimples | specVarSimplesIni |
 specVarArranjo | specVarArranjoIni
 Observe que a declaração de variáveis é indicada pela palavra reservada var. Observe
 também que múltiplas variáveis podem ser declaradas de uma vez e que elas podem ser
-inicializadas durante a declaração. Veja que, para os arranjos, o tamanho do mesmo
-também deve ser especificado na declaração</p>
+inicializadas durante a declaração.
+Na declaração de arranjos, o tamanho do mesmo deve ser especificado como um literal
+numérico.</p>
 </div>
 <div class="section" id="subprogramas-procedimentos-e-funcoes">
 <h2>Subprogramas (procedimentos e funções)<a class="headerlink" href="#subprogramas-procedimentos-e-funcoes" title="Permalink to this headline">¶</a></h2>
@@ -334,49 +346,54 @@ também deve ser especificado na declaração</p>
 do tipo de retorno para procedimentos. Diferentemente da linguagem C, por exemplo,
 não há separação entre declaração e definição de subprogramas, isto é, o subprograma é
 declarado durante sua própria definição.
-Exemplo:
-Declaração de Procedimento Declração de Função
-def proc(y: int) {
+Exemplo:</p>
+</div>
+<div class="section" id="declaracao-de-procedimento">
+<h2>Declaração de Procedimento<a class="headerlink" href="#declaracao-de-procedimento" title="Permalink to this headline">¶</a></h2>
+<p>def proc(y: int) {
 if (y &lt; 0) {
 return;
 }
-x = 2 * y;
+x = 2 * y; // x é global!
 }</p>
-<p>def func(x, y: int): int {
-z = x * y: int;
-return z + 1;
+</div>
+<div class="section" id="declracao-de-funcao">
+<h2>Declração de Função<a class="headerlink" href="#declracao-de-funcao" title="Permalink to this headline">¶</a></h2>
+<p>def func(x[], y: int; z: bool): int {
+a = x[y-1]: int;
+return a + 1;
 }</p>
 </div>
 <div class="section" id="declaracao-de-subprogramas">
 <h2>Declaração de Subprogramas<a class="headerlink" href="#declaracao-de-subprogramas" title="Permalink to this headline">¶</a></h2>
 <p>decSub ::= decProc | decFunc</p>
 </div>
-<div class="section" id="declaracao-de-procedimento">
-<h2>Declaração de procedimento<a class="headerlink" href="#declaracao-de-procedimento" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h2>Declaração de procedimento<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>decProc ::= ‘def’ id ‘(‘ [listaParâmetros] ‘)’ bloco</p>
 </div>
 <div class="section" id="declaracao-de-funcao">
-<h2>Declaração de função<a class="headerlink" href="#declaracao-de-funcao" title="Permalink to this headline">¶</a></h2>
+<h2>Declaração de Função<a class="headerlink" href="#declaracao-de-funcao" title="Permalink to this headline">¶</a></h2>
 <p>decFunc ::= ‘def’ id ‘(‘ [listaParâmetros] ‘)’ ‘:’ tipo bloco</p>
 </div>
 <div class="section" id="lista-de-parametros">
 <h2>Lista de Parâmetros<a class="headerlink" href="#lista-de-parametros" title="Permalink to this headline">¶</a></h2>
-<p>listaParâmetros ::= paramsSpec {‘;’ paramsSpec}
-paramsSpec ::= param {, param} : tipo
-param ::= id | id ‘[]
-Parâmetros de tipo primitivo são passados naturalmente por cópia e parâmetros de tipo
-arranjo são passados naturalmente por referência.</p>
+<p>listaParâmetros ::= specParams {‘;’ specParams}
+specParams ::= param {‘,’ param} ‘:’ tipo
+param ::= id | id ‘[]’
+Parâmetros de tipo inteiro ou lógico são passados naturalmente por cópia e parâmetros
+de tipo arranjo ou string são passados naturalmente por referência.</p>
 </div>
 </div>
 <div class="section" id="comandos">
 <h1>Comandos<a class="headerlink" href="#comandos" title="Permalink to this headline">¶</a></h1>
 <p>Um comando pode ser um comando simples ou bloco de comandos.
-cmd ::= cmdSimples | bloco
+comando ::= cmdSimples | bloco
 A seguir são relacionados os comandos simples da linguagem:</p>
 <div class="section" id="atribuicao">
 <h2>Atribuição<a class="headerlink" href="#atribuicao" title="Permalink to this headline">¶</a></h2>
 <p>cmdAtrib ::= atrib ‘;’
-atrib ::= variável (‘=’|’+=’|’-=’|’<a href="#id1"><span class="problematic" id="id2">*</span></a>=’|’/=’|’%=’) expressão
+atrib ::= variável (‘=’|’+=’|’-=’|’<a href="#id2"><span class="problematic" id="id3">*</span></a>=’|’/=’|’%=’) expressão
 O comando de atribuição avalia o valor da expressão e o armazena na variável.
 Uma atribuição somente pode ocorrer se a variável foi previamente declarada e se o
 tipo do resultado da expressão é o mesmo indicado na declaração da variável.
@@ -404,9 +421,9 @@ interrompida.</p>
 <p>cmdFor ::= ‘for’ ‘(‘ atrib-ini ‘;’ expressão ‘;’ atrib-passo ‘)’ comando
 O laço for inicia executando a atribuição de inicialização. A partir daí, antes de cada
 iteração, o resultado da expressão de teste é verificado. Se ele for true, o comando
-corpo é executado e o a atribuição de passo é executada em seguida, reiniciando o
+corpo é executado e a atribuição de passo é executada em seguida, reiniciando o
 processo. Se antes de qualquer iteração o valor resultado pela expressão de teste for
-false, a execução do laço é interrompida.</p>
+false, a execução do laço é interrompida</p>
 </div>
 <div class="section" id="interrupcao-do-laco">
 <h2>Interrupção do laço:<a class="headerlink" href="#interrupcao-do-laco" title="Permalink to this headline">¶</a></h2>
@@ -433,8 +450,8 @@ Como o programa principal é definido por meio de uma função, ele deve conter 
 menos um comando return e o valor retornado deve ser um número inteiro.</p>
 </div>
 <div class="section" id="chamada-de-procedimento">
-<h2>Chamada de procedimento:<a class="headerlink" href="#chamada-de-procedimento" title="Permalink to this headline">¶</a></h2>
-<p>cmdChamadaProc ::= id ‘(‘ expressão [, expressão] ‘)’ ‘;’
+<h2>Chamada de Procedimento:<a class="headerlink" href="#chamada-de-procedimento" title="Permalink to this headline">¶</a></h2>
+<p>cmdChamadaProc ::= id ‘(‘ [expressão {‘,’ expressão}] ‘)’ ‘;’
 Como a chamada de procedimentos não resulta em um valor, é necessário um
 comando para sua execução. A chamada de funções possui sintaxe semelhante,
 exceto por não ser um comando, e sim uma expressão.</p>
@@ -452,7 +469,7 @@ exceto por não ser um comando, e sim uma expressão.</p>
 <p>Um bloco é uma sequência de (nenhuma ou várias) declarações de subprogramas e
 variáveis seguida de uma sequência de (nenhum ou vários) comandos. Um bloco é
 circundado por chaves { }.
-bloco ::= ‘{‘ {decVar} {comando} ‘}’</p>
+bloco ::= ‘{‘ {dec} {comando} ‘}’</p>
 </div>
 </div>
 <div class="section" id="expressao">
@@ -460,8 +477,75 @@ bloco ::= ‘{‘ {decVar} {comando} ‘}’</p>
 <p>Uma expressão pode conter valores dos três tipos definidos (inteiros, lógicos e strings),
 uso de variáveis, chamadas de função e outras expressões. Uma expressão pode estar
 cercada por parênteses e se relacionar a outras expressões por meio dos seguintes
-operadores:
-— TABELA —</p>
+operadores:</p>
+<table border="1" class="docutils" id="id9">
+<caption><span class="caption-text">Tabela de expressões</span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Precedência</th>
+<th class="head">Operadores</th>
+<th class="head">Descrição</th>
+<th class="head">Associatividade</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1</td>
+<td>‘  - ‘</td>
+<td>Negativo Unário</td>
+<td>direita</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>‘  ! ‘</td>
+<td>Não Lógico</td>
+<td>direita</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>‘  * ‘   ‘  / ‘   ‘  % ‘</td>
+<td>Multiplicação; divisão e resto</td>
+<td>esquerda</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>‘  + ‘   ‘  - ‘</td>
+<td>Adição e subtração</td>
+<td>esquerda</td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td>‘  &lt; ‘   ‘  &lt;= ‘</td>
+<td>Operadores relacionais &lt; e ≤ respectivamente</td>
+<td>esquerda</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>‘  &gt; ‘   ‘  &gt;= ‘</td>
+<td>Operadores relacionais &gt; e ≥ respectivamente</td>
+<td>esquerda</td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>‘  == ‘   ‘  != ‘</td>
+<td>Operadores relacionais = e ≠ respectivamente</td>
+<td>esquerda</td>
+</tr>
+<tr class="row-odd"><td>6</td>
+<td>‘  &amp;&amp; ‘</td>
+<td>E lógico</td>
+<td>esquerda</td>
+</tr>
+<tr class="row-even"><td>7</td>
+<td>‘  || ‘</td>
+<td>OU lógico</td>
+<td>esquerda</td>
+</tr>
+<tr class="row-odd"><td>8</td>
+<td>‘  ? ‘   ‘  : ‘</td>
+<td>Condicional ternário</td>
+<td>direita</td>
+</tr>
+</tbody>
+</table>
 <p>O operador condicional ternário é formado da seguinte maneira:
 opTern ::= expressão-teste ‘?’ expressão-então ‘:’ expressão-senão
 A expressão teste é avaliada. Se o resultado for true a expressão então é resultada,
@@ -482,8 +566,8 @@ análise semântica.</p>
 </div>
 <div class="section" id="especificacao-semantica">
 <h1>Especificação Semântica<a class="headerlink" href="#especificacao-semantica" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id3">
-<h2>Programa<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2>Programa<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>A última declaração deve ser obrigatoriamente a da rotina principal, pela qual se dará o
 início da execução do programa. Todas as declarações realizadas no programa (fora de
 qualquer subprograma) estão dentro do escopo global.</p>
@@ -499,8 +583,8 @@ expressão de inicialização deve ser o mesmo da variável.
 • A última declaração global deve ser de uma função chamada “main” do tip</p>
 </div>
 </div>
-<div class="section" id="id4">
-<h1>Comandos:<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id5">
+<h1>Comandos:<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="if">
 <h2>If<a class="headerlink" href="#if" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -563,8 +647,8 @@ procedimento.
 • Os argumentos fornecidos devem ter a mesma ordem de tipo utilizada na
 declaração do procedimento.</p>
 </div>
-<div class="section" id="id5">
-<h2>Atribuição<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h2>Atribuição<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>O lado esquerdo da atribuição deve ser uma variável declarada e visível no escopo</li>
 </ul>
@@ -572,8 +656,8 @@ declaração do procedimento.</p>
 • O lado direito deve ser uma expressão com tipo igual ao da variável do lado
 esquerdo da atribuição.</p>
 </div>
-<div class="section" id="id6">
-<h2>Bloco<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h2>Bloco<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Define um novo escopo estático. O escopo é criado no início do bloco e finalizado</li>
 </ul>
@@ -614,8 +698,8 @@ esquerdo da atribuição.</p>
 <li>O tipo resultante é o mesmo tipo da expressão consequente.</li>
 </ul>
 </div>
-<div class="section" id="id7">
-<h2>Uso de variável<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h2>Uso de variável<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>A variável deve estar declarada e visível no escopo atual. O tipo resultante é o tipo</li>
 </ul>
@@ -625,7 +709,7 @@ esquerdo da atribuição.</p>
 <h2>Chamada de função:<a class="headerlink" href="#chamada-de-funcao" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Análise análoga à chamada de procedimento.</li>
-<li>O tipo resultante é igual ao tipo declarado da funçã</li>
+<li>O tipo resultante é igual ao tipo declarado da função</li>
 </ul>
 </div>
 </div>
