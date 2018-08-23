@@ -11,14 +11,6 @@ Documentação Linguagem ILP 2018!
    :caption: Contents:
 
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
 Especificação da Linguagem [nome?] (Versão 0.4)
 =============================
 
